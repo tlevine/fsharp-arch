@@ -10,7 +10,7 @@ url="https://github.com/fsharp/fsharp"
 license=('Apache')
 depends=('mono')
 makedepends=('git')
-source=("$pkgname"::'git://github.com/fsharp/fsharp.git')
+source=('git://github.com/fsharp/fsharp.git')
 md5sums=('SKIP')
 
 pkgver() {
@@ -26,5 +26,5 @@ build() {
 
 package() {
   cd "$srcdir/$pkgname"
-  make install
+  make PREFIX=/usr DESTDIR="$pkgdir" install
 }
